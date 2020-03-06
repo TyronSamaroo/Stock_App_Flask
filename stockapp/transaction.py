@@ -1,12 +1,11 @@
 import os
 from dotenv import load_dotenv
-from iexfinance.stocks import Stock
-load_dotenv()
 
+load_dotenv()
 
 token = os.getenv("IEX_TOKEN")
 
-
+print(token)
 from iexfinance.stocks import Stock
-tsla = Stock('TSLA')
-print(tsla.get_price())
+a = Stock("AAPL", token=token)
+print(a.get_quote()['symbol'])

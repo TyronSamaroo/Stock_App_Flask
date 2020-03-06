@@ -4,6 +4,9 @@ from flask_bcrypt import Bcrypt
 from flask_login import LoginManager 
 from flask_heroku import Heroku
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 app = Flask(__name__)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'aa7b78e1935378061106cfbd12e774b3'
