@@ -13,6 +13,7 @@ app.config['SECRET_KEY'] = 'aa7b78e1935378061106cfbd12e774b3'
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL'] if os.environ['DATABASE_URL'] else ENV['DATABASE_URL']
 
 db = SQLAlchemy(app)
+db.create_all()
 heroku = Heroku(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
