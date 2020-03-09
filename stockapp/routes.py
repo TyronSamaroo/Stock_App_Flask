@@ -1,6 +1,6 @@
 from stockapp import app, db, bcrypt 
 from flask import render_template, url_for, flash, redirect, request
-from stockapp.forms import RegistrationForm, LoginForm
+from stockapp.forms import RegistrationForm, LoginForm, TransactionForm
 from stockapp.models import User, Transaction
 from flask_bcrypt import Bcrypt
 from flask_login import login_user, current_user, logout_user, login_required
@@ -11,7 +11,11 @@ from flask_login import login_user, current_user, logout_user, login_required
    
 
 @app.route('/')
+def main():
+   return render_template('main.html')
+
 @app.route('/home')
+@login_required
 def home():
    return render_template('home.html')
 
@@ -56,12 +60,20 @@ def logout():
    logout_user()
    return redirect(url_for('home'))
  
-@app.route('/portfolio')
+@app.route('/portfolio', methods=['GET','POST'])
 @login_required
 def portfolio():
-   return render_template('portfolio.html', title='Account')
+   form = TransactionForm()
+   
+   return render_template('portfolio.html', title='Portfolio', form=form)
 
 @app.route('/transaction')
 @login_required
 def transaction():
-   return render_template('transaction.html', title='Account')
+   return render_template('transaction.html', title='Transaction')
+
+@app.route('/account')
+@login_required
+def account():
+   return render_template('account.html', title='Account')
+

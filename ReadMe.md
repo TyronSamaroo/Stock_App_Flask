@@ -1,24 +1,27 @@
 ```
 .
+├── Procfile
 ├── ReadMe.md
 ├── requirements.txt
 ├── run.py
 └── stockapp
     ├── __init__.py
+    ├── database.db
     ├── forms.py
     ├── models.py
+    ├── request.py
     ├── routes.py
     ├── static
     │   └── main.css
-    ├── templates
-    │   ├── home.html
-    │   ├── layout.html
-    │   ├── login.html
-    │   ├── portfolio.html
-    │   ├── register.html
-    │   └── transaction.html
-    └── transaction.py
-
+    └── templates
+        ├── account.html
+        ├── home.html
+        ├── layout.html
+        ├── login.html
+        ├── main.html
+        ├── portfolio.html
+        ├── register.html
+        └── transaction.html
 ```
 # Project Requirements 
 
@@ -49,8 +52,12 @@ On Windows:
 `py install -r requirements.txt`
 
 
-# Run Application 
+# Run Application
+
 `flask run`
+
+All local environment configuration is located in the .flaskenv file
+
 
 
 
